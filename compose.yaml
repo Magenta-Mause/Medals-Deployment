@@ -1,6 +1,6 @@
 services:
-  nginx:
-    image: medals-frontend
+  frontend:
+    image: ecofreshkaese/medals-frontend
     ports:
       - "80:80"
     volumes:
