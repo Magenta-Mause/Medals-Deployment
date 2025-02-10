@@ -1,13 +1,10 @@
 services:
   nginx:
-    image: nginx:1.27.3
+    image: medals-frontend
     ports:
       - "80:80"
     volumes:
       - "./nginx/default.conf:/etc/nginx/conf.d/default.conf"
-
-  frontend:
-    image: ecofreshkaese/medals-frontend
 
   backend:
     image: ecofreshkaese/medals-backend
