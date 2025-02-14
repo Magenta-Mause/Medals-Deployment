@@ -28,4 +28,4 @@ When the publish workflow gets executed on the backend and frontend projects, af
 
 The second systemd service is the medals-get-deployment.service that pulls the newest changes from the main branch of this project in the deployment dir and restarts the docker-compose. Commits to the main branch of this project restart this service to deploy the newest changes.
 
-The application internally runs on port 81, which gets exposed to port 80 (https) and 443 (https) via an extra nginx deployment that enables https support for the application with the help of certbot.
+The application internally runs on port 1024, which gets exposed to port 80 (https) and 443 (https) via an extra nginx deployment that enables https support for the application with the help of certbot.
