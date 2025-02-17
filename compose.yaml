@@ -1,0 +1,12 @@
+services:
+  frontend:
+    build:
+      context: .
+      dockerfile: frontend.Dockerfile
+    ports:
+      - "1024:80"
+    depends_on:
+      - backend
+
+  backend:
+    image: ecofreshkaese/medals-backend:latest
