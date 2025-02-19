@@ -1,5 +1,7 @@
+version: "3"
 services:
   frontend:
+    image: ecofreshkaese/medals-frontend:latest
     build:
       context: .
       dockerfile: frontend.Dockerfile
@@ -7,6 +9,16 @@ services:
       - "1024:80"
     depends_on:
       - backend
+    labels:
+      - "com.centurylinklabs.watchtower.enable=true"
 
   backend:
     image: ecofreshkaese/medals-backend:latest
+    labels:
+      - "com.centurylinklabs.watchtower.enable=true"
+
+  watchtower:
+    image: containrrr/watchtower
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    command: --interval 30 --label-enable --cleanup
