@@ -31,12 +31,26 @@ services:
   postgres_db:
     image: postgres:17
     ports:
-      - "5432:5432" # Development only
+      - "5432:5432"
     volumes:
       - medals_postgres_data:/var/lib/postgresql/data
+    env_file:
+      - deploy.env
+
+  db_backup:
+    build:
+      context: ./db_backup
+      dockerfile: db-backup.Dockerfile
+    volumes:
+      - medals_postgres_data:/var/lib/postgresql/data
+      - medals_db_backup:/backups
+    depends_on:
+      - postgres_db
     env_file:
       - deploy.env
 
 volumes:
   medals_postgres_data:
     name: medals_postgres_data
+  medals_db_backup:
+    name: medals_db_backup
