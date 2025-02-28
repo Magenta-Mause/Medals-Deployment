@@ -1,1 +1,4 @@
 .vscode
+*.env
+!example.env
+/backend/application-production.yaml
