@@ -21,6 +21,8 @@ services:
       - SPRING_PROFILES_ACTIVE=production
     env_file:
       - deploy.env
+    volumes:
+      - ./backend/application-production.yaml:/config/application-production.yaml
 
   watchtower:
     image: containrrr/watchtower
