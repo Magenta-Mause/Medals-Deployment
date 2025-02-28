@@ -1,6 +1,6 @@
 services:
   frontend:
-    image: medals-frontend-dev:latest
+    image: ecofreshkaese/medals-frontend:latest
     build:
       context: .
       dockerfile: frontend.Dockerfile
@@ -12,7 +12,7 @@ services:
       - "com.centurylinklabs.watchtower.enable=true"
 
   backend:
-    image: medals-backend-dev:latest
+    image: ecofreshkaese/medals-backend:latest
     labels:
       - "com.centurylinklabs.watchtower.enable=true"
     depends_on:
