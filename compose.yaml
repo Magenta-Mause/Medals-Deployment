@@ -18,7 +18,7 @@ services:
       - "com.centurylinklabs.watchtower.enable=true"
 
   watchtower:
-    image: containrrr/watchtower
+    image: containrrr/watchtower@sha256:f772af6854833009c203b1f5d816714b307213989cdfdc0a1797a9e60e5f6cc7
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
     command: --interval 30 --label-enable --cleanup
