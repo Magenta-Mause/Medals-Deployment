@@ -43,7 +43,7 @@ app:
       reset-password-notification: "template_reset_password"
       password-reset-notification: "template_password_reset"
   notification:
-    notification-service-base-url: https://stratssync.com
+    front-end-base-url: https://stratssync.com
   otc:
     set-password-token-validity-duration: 604800000
     reset-password-token-validity-duration: 3600000
