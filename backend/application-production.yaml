@@ -26,10 +26,31 @@ cors:
 app:
   admin:
     enabled: true
-    admins: # Add your admins here
-      - email: "example@example.org"
-        first-name: "Mighty"
-        last-name: "God"
+    admins: # Change your admins here
+      - email: ${ALEXANDER_EMAIL}
+        first-name: "EcoFresh"
+        last-name: "Kase"
+      - email: ${JANNE_EMAIL}
+        first-name: "Janne"
+        last-name: "6565"
+      - email: ${PY_BAY_EMAIL}
+        first-name: "Py"
+        last-name: "Bay"
+      - email: ${HYUNJOON_EMAIL}
+        first-name: "Joon"
+        last-name: "Jester"
+      - email: ${FIETE_MINGE_EMAIL}
+        first-name: "Fiete"
+        last-name: "Nsen"
+      - email: ${LARSBOBO_EMAIL}
+        first-name: "Lars"
+        last-name: "Bobo"
+      - email: ${MCLEMURI_EMAIL}
+        first-name: "MC"
+        last-name: "Lemuri"
+      - email: ${LEESOKO_EMAIL}
+        first-name: "Lee"
+        last-name: "Soko"
   security:
     identity-token-expiration-time: 3600000
     refresh-token-expiration-time: 2678400000
@@ -43,7 +64,7 @@ app:
       reset-password-notification: "template_reset_password"
       password-reset-notification: "template_password_reset"
   notification:
-    front-end-base-url: https://stratssync.com
+    front-end-base-url: https://stratssync.com # add your base url here
   otc:
     set-password-token-validity-duration: 604800000
     reset-password-token-validity-duration: 3600000
