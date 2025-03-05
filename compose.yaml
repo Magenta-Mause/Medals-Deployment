@@ -51,7 +51,7 @@ services:
       - deploy.env
 
 volumes:
-  medals_postgres_data:
-    name: postgres_data
-  medals_db_backup:
-    name: db_backup
+  postgres_data:
+    name: medals_postgres_data
+  db_backup:
+    name: medals_db_backup
