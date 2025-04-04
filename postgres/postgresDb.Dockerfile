@@ -1,7 +1,6 @@
-FROM debian:bullseye-slim
+FROM postgres:17
 
 RUN apt-get update && apt-get install -y \
-    postgresql-client-13 \
     cron && \
     rm -rf /var/lib/apt/lists/*
 
@@ -13,4 +12,5 @@ RUN echo "*/1 * * * * root bash -c 'set -a; source /proc/self/environ; set +a; /
     touch /var/log/backup.log /var/log/cron.log
 
 # Start cron in the foreground
-CMD ["sh", "-c", "cron && tail -f /var/log/backup.log"]
+CMD ["postgres"]
+# CMD ["sh", "-c", "cron && tail -f /var/log/backup.log & exec postgres"]

@@ -30,23 +30,14 @@ services:
   #   command: --interval 30 --label-enable --cleanup
 
   postgres_db:
-    image: postgres:17
+    build:
+      context: ./postgres
+      dockerfile: postgresDb.Dockerfile
     ports:
       - "5432:5432"
     volumes:
       - postgres_data:/var/lib/postgresql/data
-    env_file:
-      - deploy.env
-
-  db_backup:
-    build:
-      context: ./db_backup
-      dockerfile: db-backup.Dockerfile
-    volumes:
-      # - postgres_data:/var/lib/postgresql/data
       - db_backup:/backups
-    depends_on:
-      - postgres_db
     env_file:
       - deploy.env
 
