@@ -9,15 +9,20 @@ It allows trainers to create and invite their athletes to the platform, track th
 
 ### Backup
 
-Make sure the pg_dump command is available in your environment. E.g. run `sudo apt install postgresql-client-common`
+To create a backup of the database you can execute the `dbBackup.sh` script.
+To use it you need to install `pg_dump`.
 
-**Installation**
+#### Installation of `pg_dump`
 
 - `sudo apt update`
 - `sudo sh -c 'echo "deb http://apt.postgresql.org/pub/repos/apt $(lsb_release -cs)-pgdg main" > /etc/apt/sources.list.d/pgdg.list'`
 - `curl -fsSL https://www.postgresql.org/media/keys/ACCC4CF8.asc | sudo gpg --dearmor -o /etc/apt/trusted.gpg.d/postgresql.gpg`
 - `sudo apt update`
 - `sudo apt install postgresql-17`
+
+#### Usage
+
+`bash dbBackup.sh {path to your deploy.env} {path to the directory where the backups should be stored}`
 
 ## Infrastructure
 
