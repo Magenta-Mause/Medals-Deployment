@@ -1,15 +1,19 @@
 #!/bin/bash
 
-DEPLOY_ENV_PATH=${1:-"./deploy.env"}
+DEPLOY_ENV_PATH=${1}
+BACKUP_DIR=${2}
 if [ ! -f "$DEPLOY_ENV_PATH" ]; then
-  echo "Error: deploy.env file not found at $DEPLOY_ENV_PATH" >&2
+  echo "Error: DEPLOY_ENV_PATH not provided" >&2
+  exit 1
+fi
+if [ ! -f "$DEPLOY_ENV_PATH" ]; then
+  echo "Error: BACKUP_DIR not provided" >&2
   exit 1
 fi
 
-CURRENT_DIR=$(pwd)
-BACKUP_DIR="$CURRENT_DIR/backups"
 BACKUP_FILE="$BACKUP_DIR/backup_$(date +%Y_%m_%d_%H_%M_%S).sql"
 
+# Ensure the backup directory exists
 mkdir -p $BACKUP_DIR
 
 # Load environment variables from the specified deploy.env file
@@ -27,4 +31,4 @@ else
 fi
 
 # Remove backups older than 90 days
-find $BACKUP_DIR -type f -name "*.sql" -mtime +90 -exec sh -c 'echo "Deleting {}"; rm {}' \;
+find "$BACKUP_DIR" -type f -name "*.sql" -mtime +90 -exec sh -c 'echo "Deleting {}"; rm {}' \;
