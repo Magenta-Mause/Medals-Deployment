@@ -11,7 +11,7 @@ set -a
 set +a
 
 export PGPASSWORD=$POSTGRES_PASSWORD
-pg_dump -U $POSTGRES_USER -h postgres_db $POSTGRES_DB > $BACKUP_FILE
+pg_dump -U $POSTGRES_USER -h localhost $POSTGRES_DB > $BACKUP_FILE
 
 if [ $? -eq 0 ]; then
   echo "Backup created successfully at $BACKUP_FILE"
