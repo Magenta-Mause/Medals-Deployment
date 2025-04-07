@@ -2,6 +2,10 @@ BACKUP_FILE="/backups/backup_$(date +%Y_%m_%d_%H_%M_%S_).sql"
 
 mkdir backups
 
+set -a
+  source deploy.env
+set +a
+
 export PGPASSWORD=$POSTGRES_PASSWORD
 echo $POSTGRES_PASSWORD
 echo $POSTGRES_USER
