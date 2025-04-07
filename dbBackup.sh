@@ -1,17 +1,16 @@
-BACKUP_FILE="/backups/backup_$(date +%Y_%m_%d_%H_%M_%S_).sql"
+#!/bin/bash
 
-mkdir backups
+CURRENT_DIR=$(pwd)
+BACKUP_DIR="$CURRENT_DIR/backups"
+BACKUP_FILE="$BACKUP_DIR/backup_$(date +%Y_%m_%d_%H_%M_%S).sql"
+
+mkdir -p $BACKUP_DIR
 
 set -a
   source deploy.env
 set +a
 
 export PGPASSWORD=$POSTGRES_PASSWORD
-echo $POSTGRES_PASSWORD
-echo $POSTGRES_USER
-echo $POSTGRES_DB
-
-# pg_dump -h postgres_db -Fc -U $POSTGRES_USER $POSTGRES_DB > $BACKUP_FILE
 pg_dump -U $POSTGRES_USER -h postgres_db $POSTGRES_DB > $BACKUP_FILE
 
 if [ $? -eq 0 ]; then
