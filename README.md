@@ -5,6 +5,20 @@ Medals is tool to help trainers administer the progress for the [_Deutsche Sport
 
 It allows trainers to create and invite their athletes to the platform, track their scores, see which _Sportabzeichen_ they would earn, administer their athletes with different trainers together, check wether the _Schwimmnachweis_ is present or not and lets the athletes see their own progress.
 
+## Setup
+
+### Backup
+
+Make sure the pg_dump command is available in your environment. E.g. run `sudo apt install postgresql-client-common`
+
+**Installation**
+
+- `sudo apt update`
+- `sudo sh -c 'echo "deb http://apt.postgresql.org/pub/repos/apt $(lsb_release -cs)-pgdg main" > /etc/apt/sources.list.d/pgdg.list'`
+- `curl -fsSL https://www.postgresql.org/media/keys/ACCC4CF8.asc | sudo gpg --dearmor -o /etc/apt/trusted.gpg.d/postgresql.gpg`
+- `sudo apt update`
+- `sudo apt install postgresql-17`
+
 ## Infrastructure
 
 The [Medals-Frontend](https://github.com/magenta-Mause/Medals-Frontend/) and [Medals-Backend](https://github.com/magenta-Mause/Medals-Backend/) generate an docker image on every commit to main

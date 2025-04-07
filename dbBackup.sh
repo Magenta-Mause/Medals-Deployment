@@ -11,9 +11,6 @@ set -a
 set +a
 
 export PGPASSWORD=$POSTGRES_PASSWORD
-echo PGPASSWORD=$PGPASSWORD
-echo POSTGRES_USER=$POSTGRES_USER
-echo POSTGRES_DB=$POSTGRES_DB
 pg_dump -U $POSTGRES_USER -h localhost $POSTGRES_DB > $BACKUP_FILE
 
 if [ $? -eq 0 ]; then
