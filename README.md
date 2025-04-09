@@ -5,6 +5,13 @@ Medals is tool to help trainers administer the progress for the [_Deutsche Sport
 
 It allows trainers to create and invite their athletes to the platform, track their scores, see which _Sportabzeichen_ they would earn, administer their athletes with different trainers together, check wether the _Schwimmnachweis_ is present or not and lets the athletes see their own progress.
 
+## Setup
+
+### Backup
+
+To create a backup of the database you need to execute the `dbBackup.sh` script inside the `postgres_db` container.
+To do that execute the following command: `docker compose exec postgres_db bash dbBackup.sh`
+
 ## Infrastructure
 
 The [Medals-Frontend](https://github.com/magenta-Mause/Medals-Frontend/) and [Medals-Backend](https://github.com/magenta-Mause/Medals-Backend/) generate an docker image on every commit to main
