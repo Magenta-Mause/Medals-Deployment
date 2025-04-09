@@ -27,7 +27,7 @@ services:
     image: containrrr/watchtower@sha256:f772af6854833009c203b1f5d816714b307213989cdfdc0a1797a9e60e5f6cc7
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
-    command: --interval 30 --label-enable --cleanup
+  command: --interval 30 --label-enable --cleanup
 
   postgres_db:
     image: postgres:17
@@ -35,9 +35,13 @@ services:
       - "5432:5432"
     volumes:
       - postgres_data:/var/lib/postgresql/data
+      - db_backup:/backups
+      - ./dbBackup.sh:/dbBackup.sh
     env_file:
       - deploy.env
 
 volumes:
   postgres_data:
     name: medals_postgres_data
+  db_backup:
+    name: medals_db_backup
