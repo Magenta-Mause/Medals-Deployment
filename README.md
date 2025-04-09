@@ -9,20 +9,8 @@ It allows trainers to create and invite their athletes to the platform, track th
 
 ### Backup
 
-To create a backup of the database you can execute the `dbBackup.sh` script.
-To use it you need to install `pg_dump`.
-
-#### Installation of `pg_dump`
-
-- `sudo apt update`
-- `sudo sh -c 'echo "deb http://apt.postgresql.org/pub/repos/apt $(lsb_release -cs)-pgdg main" > /etc/apt/sources.list.d/pgdg.list'`
-- `curl -fsSL https://www.postgresql.org/media/keys/ACCC4CF8.asc | sudo gpg --dearmor -o /etc/apt/trusted.gpg.d/postgresql.gpg`
-- `sudo apt update`
-- `sudo apt install postgresql-17`
-
-#### Usage
-
-`bash dbBackup.sh {path to your deploy.env} {path to the directory where the backups should be stored}`
+To create a backup of the database you need to execute the `dbBackup.sh` script inside the `postgres_db` container.
+To do that execute the following command: `docker compose exec postgres_db bash dbBackup.sh`
 
 ## Infrastructure
 
