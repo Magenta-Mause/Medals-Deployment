@@ -37,6 +37,12 @@ of a container which makes it suitable for use in a cronjob:
 ./log_purge_current.sh [container_id]
 ```
 
+#### `log_purge_deployment.sh`
+
+This script eases getting the container ids by automatically detecting
+all containers running in the project `medals-deployment`, and purging
+their logs.
+
 ## Infrastructure
 
 The [Medals-Frontend](https://github.com/magenta-Mause/Medals-Frontend/) and [Medals-Backend](https://github.com/magenta-Mause/Medals-Backend/) generate an docker image on every commit to main

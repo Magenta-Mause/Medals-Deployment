@@ -1,6 +1,6 @@
 #!/bin/bash
 
-## Syntax: ./purge_before.sh [container_id] [timestamp]
+## Syntax: ./log_purge_before.sh [container_id] [timestamp]
 
 container_dir=/var/lib/docker/containers/$1
 purge_before=$2
