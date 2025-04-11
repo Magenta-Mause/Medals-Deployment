@@ -36,7 +36,7 @@ services:
     volumes:
       - postgres_data:/var/lib/postgresql/data
       - db_backup:/backups
-      - ./dbBackup.sh:/dbBackup.sh
+      - ./scripts/dbBackup.sh:/dbBackup.sh
     env_file:
       - deploy.env
 

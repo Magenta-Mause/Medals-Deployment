@@ -10,7 +10,38 @@ It allows trainers to create and invite their athletes to the platform, track th
 ### Backup
 
 To create a backup of the database you need to execute the `dbBackup.sh` script inside the `postgres_db` container.
-To do that execute the following command: `docker compose exec postgres_db bash dbBackup.sh`
+To do that execute the following command: `docker compose exec postgres_db bash ./scripts/dbBackup.sh`
+
+### Logs
+
+The `./scripts` directory additionally contains the scripts `log_purge_before.sh` and `log_purge_current.sh`. These scripts can be used to
+remove docker logs, ensuring compliance with any privacy regulations applying to you as an administrator:
+
+#### `log_purge_before.sh`
+
+This script purges all logs from a docker container before a specified timestamp. You can run it as follows:
+```bash
+./log_purge_before.sh [container_id] [timestamp]
+```
+
+The timestamp is in the format `YYYY-MM-DDTHH:MM:SS.nsZ` (e.g. `2025-04-11T10:03:56.605310101Z`). Please note that this script requires
+the permissions to read and delete log files in the `/var/lib/docker/containers` directory.
+
+The `[container_id]` needs to be the **full** container hash.
+
+#### `log_purge_current.sh`
+
+This script, similarly to `log_purge_before.sh`, purges log messages for compliance. It is a little shortcut to purge the current logfile
+of a container which makes it suitable for use in a cronjob:
+```bash
+./log_purge_current.sh [container_id]
+```
+
+#### `log_purge_deployment.sh`
+
+This script eases getting the container ids by automatically detecting
+all containers running in the project `medals-deployment`, and purging
+their logs.
 
 ## Infrastructure
 
