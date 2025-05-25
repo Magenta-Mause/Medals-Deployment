@@ -3,6 +3,15 @@
 EMAIL_AUTHOR="noreply@medals.com"
 JWS_SECRET=$(tr -dc 'a-z0-9' < /dev/urandom | head -c 512)
 
+if [ -f deploy.env ]; then
+    echo "deploy.env already exists. Overwrite? (y/n)"
+    read OVERWRITE
+    if [ "$OVERWRITE" != "y" ]; then
+        echo "Aborting installation."
+        exit 1
+    fi
+fi
+
 echo "Please enter your email address:"
 read USER_EMAIL_ADDRESS
 
