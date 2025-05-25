@@ -21,7 +21,7 @@ services:
     env_file:
       - deploy.env
     volumes:
-      - ./backend/application-production.yaml:/config/application-production.yaml
+      - ./backend/application-local.yaml:/config/application-production.yaml
 
   watchtower:
     image: containrrr/watchtower@sha256:f772af6854833009c203b1f5d816714b307213989cdfdc0a1797a9e60e5f6cc7
