@@ -56,6 +56,8 @@ bash installation.sh
 ```
 
 The script will clone this repository, ask you for some information, create a deploy.env file for and start the docker compose.
+On startup the Medals-Backend will send a mail to the registered admin asking them to create a password for their account. 
+After the setup has finished you can see the medals-frontend under `http://localhost:1024` (the port can be customized in the `compose-local.yaml`)
 
 ## Custom Deployment
 
