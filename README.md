@@ -55,7 +55,7 @@ curl -o installation.sh https://raw.githubusercontent.com/Magenta-Mause/Medals-D
 bash installation.sh
 ```
 
-The script will ask you for some information, create a deploy.env file for you and start the docker compose.
+The script will clone this repository, ask you for some information, create a deploy.env file for and start the docker compose.
 
 ## Custom Deployment
 
