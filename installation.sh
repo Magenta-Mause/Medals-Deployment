@@ -4,7 +4,7 @@ git clone https://github.com/Magenta-Mause/Medals-Deployment.git
 cd Medals-Deployment
 
 EMAIL_AUTHOR="noreply@medals.com"
-JWS_SECRET=$(tr -dc 'a-z0-9' < /dev/urandom | head -c 512)
+JWS_SECRET=$(LC_ALL=C < /dev/urandom tr -dc 'a-z0-9' | head -c 512)
 
 if [ -f deploy.env ]; then
     echo "deploy.env already exists. Overwrite? (y/n)"
@@ -42,3 +42,4 @@ APP_ADMIN_ADMINS_0_LAST-NAME=$LAST_NAME
 " > deploy.env
 
 docker compose -f compose-local.yaml up
+echo "You should be able to reach the medals-frontend under http://localhost:1024"
