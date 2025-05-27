@@ -50,7 +50,7 @@ what they need to do to be eligible.
 To deploy a version of Medals locally you need to have docker installed and execute:
 
 ```
-curl -o installation.sh https://raw.githubusercontent.com/Magenta-Mause/Medals-Deployment/refs/heads/main/compose.yaml
+curl -o installation.sh https://raw.githubusercontent.com/Magenta-Mause/Medals-Deployment/refs/heads/main/installation.sh
 
 bash installation.sh
 ```
