@@ -47,7 +47,13 @@ what they need to do to be eligible.
 
 ## Local Deployment
 
-To deploy a version of Medals locally you only need to have docker installed and execute `installation.sh`.
+To deploy a version of Medals locally you need to have docker installed and execute:
+
+```
+curl -o installation.sh https://raw.githubusercontent.com/Magenta-Mause/Medals-Deployment/refs/heads/main/compose.yaml
+
+bash installation.sh
+```
 
 The script will ask you for some information, create a deploy.env file for you and start the docker compose.
 

@@ -1,5 +1,8 @@
 #!/bin/bash
 
+git clone https://github.com/Magenta-Mause/Medals-Deployment.git
+cd Medals-Deployment
+
 EMAIL_AUTHOR="noreply@medals.com"
 JWS_SECRET=$(tr -dc 'a-z0-9' < /dev/urandom | head -c 512)
 
